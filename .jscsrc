@@ -1,0 +1,5 @@
+{
+  "disallowSpacesInsideObjectBrackets": null,
+  "preset": "grunt",
+  "requireSpacesInsideObjectBrackets": "all"
+}
