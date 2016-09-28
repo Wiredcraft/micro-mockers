@@ -1,0 +1,26 @@
+{
+  "compose": "./build/docker-compose.yml",
+  "template": "./docker-compose.tpl.yml",
+  "types": {
+    "mock": {
+      "build": "./dockers/mocks",
+      "command": "drakov --config drakov.js",
+      "port": 3000
+    },
+    "doc": {
+      "build": "./dockers/docs",
+      "command": "nginx -g \"daemon off;\"",
+      "port": 80
+    }
+  },
+  "services": [{
+    "type": "mock",
+    "name": "mock_example",
+    "volume": "./example"
+  }, {
+    "type": "doc",
+    "name": "doc_example",
+    "volume": "./example",
+    "proxyPath": "/docs/example"
+  }]
+}
