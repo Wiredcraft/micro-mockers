@@ -15,11 +15,11 @@
   },
   "services": [{
     "type": "mock",
-    "name": "mock_example",
+    "name": "example_mock",
     "volume": "./example"
   }, {
     "type": "doc",
-    "name": "doc_example",
+    "name": "example_doc",
     "volume": "./example",
     "proxyPath": "/docs/example"
   }]

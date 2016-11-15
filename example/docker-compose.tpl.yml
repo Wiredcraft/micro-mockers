@@ -2,7 +2,7 @@ version: '2'
 services:
   kong:
     image: 'kong:0.9'
-    container_name: kong
+    container_name: example_kong
     restart: always
     ports:
       - '8000:8000'
@@ -22,7 +22,7 @@ services:
       - example
   postgres:
     image: 'postgres:9.4'
-    container_name: postgres
+    container_name: example_postgres
     ports:
       - '5432'
     environment:
