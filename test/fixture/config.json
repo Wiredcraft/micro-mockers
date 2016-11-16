@@ -1,0 +1,16 @@
+{
+  "compose": "./build/docker-compose.yml",
+  "template": "./docker-compose.tpl.yml",
+  "types": {
+    "mock": {
+      "build": "./dockers/mocks",
+      "command": "drakov --config drakov.js",
+      "port": 3000
+    }
+  },
+  "services": [{
+    "type": "mock",
+    "name": "fixture_lorem",
+    "volume": "./lorem"
+  }]
+}

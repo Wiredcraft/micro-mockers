@@ -1,0 +1,145 @@
+FORMAT: 1A
+
+# Lorem API
+
+# Data Structures
+
+## sampleLorem
++ id: `a9ba2379-ae7a-4cbf-b3a8-284d7aa54a6e` (required, string) - ID
++ name: `Ipsum` (required, string) - Name
++ createdAt: `2016-03-04T05:06:07.123Z`
++ updatedAt: `2016-03-04T05:06:07.123Z`
+
+## sampleLoremNew
++ id: `45aa0c6a-ca94-41db-ba15-b8e4c3b98646`,
++ name: `Dolor`,
++ createdAt: `2016-03-04T05:06:07.123Z`,
++ updatedAt: `2016-03-04T05:06:07.123Z`
+
+# Group Lorems
+Lorems API
+
+## Lorem [/api/lorems]
+Lorem description
+
+### Create a Lorem [POST]
+Create a single lorem.
+
++ Request (application/json)
+
+    + Headers
+
+            X-MOCK-LOREM: 200
+
+    + Body
+
+            {
+                "name": "Dolor"
+            }
+
++ Response 200 (application/json)
+
+    + Attributes (sampleLoremNew)
+
++ Request (application/json)
+
+    + Headers
+
+            X-MOCK-LOREM: 409
+
+    + Body
+
+            {
+                "name": "Dolor"
+            }
+
++ Response 409 (application/json)
+
+    + Body
+
+            { "error": { "statusCode": 409, "code": 40900, "message": "..." } }
+
++ Request (application/json)
+
+    + Headers
+
+            X-MOCK-LOREM: 500
+
+    + Body
+
+            {
+                "name": "Dolor"
+            }
+
++ Response 500 (application/json)
+
+## Lorem [/api/lorems/{id}]
+Lorem description
+
++ Parameters
+
+    + id: `a9ba2379-ae7a-4cbf-b3a8-284d7aa54a6e` (string) - ID
+
+### Get Lorem [GET]
+Get a single lorem.
+
++ Request
+
+    + Headers
+
+            X-MOCK-LOREM: 200
+
++ Response 200 (application/json)
+
+    + Attributes (sampleLorem)
+
++ Request
+
+    + Headers
+
+            X-MOCK-LOREM: 404
+
++ Response 404 (application/json)
+
+    + Body
+
+            { "error": { "statusCode": 404, "code": 40400, "message": "..." } }
+
++ Request
+
+    + Headers
+
+            X-MOCK-LOREM: 500
+
++ Response 500 (application/json)
+
+### Delete a Lorem [DELETE]
+Delete a single lorem
+
++ Request
+
+    + Headers
+
+            X-MOCK-LOREM: 204
+
++ Response 204
+
++ Request
+
+    + Headers
+
+            X-MOCK-LOREM: 404
+
++ Response 404 (application/json)
+
+    + Body
+
+            { "error": { "statusCode": 404, "code": 40400, "message": "..." } }
+
++ Request
+
+    + Headers
+
+            X-MOCK-LOREM: 500
+
++ Response 500 (application/json)

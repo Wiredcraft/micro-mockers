@@ -1,4 +1,4 @@
-sudo: false
+sudo: required
 language: node_js
 cache:
   directories:
@@ -12,10 +12,11 @@ node_js:
   - "6"
   - "4"
 services:
-  - redis-server
+  - docker
 install:
   - npm install
 before_script:
   - npm prune
+  - ./test/fixture/pretest.sh
 script:
   - make test-coveralls

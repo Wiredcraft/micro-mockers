@@ -36,14 +36,15 @@
     "dot": "^1.1.1",
     "file-register": "^0.1.0",
     "joi": "^9.2.0",
-    "js-yaml": "^3.6.1",
+    "js-yaml": "^3.7.0",
+    "lib-rest": "^0.1.0",
     "loopback-boot": "^2.23.0",
     "mixable-object": "^0.1.1",
     "request": "^2.78.0",
     "value-obtainer": "^0.1.0"
   },
   "devDependencies": {
-    "coveralls": "^2.11.12",
+    "coveralls": "^2.11.15",
     "istanbul": "^0.4.4",
     "jscs": "^3.0.7",
     "mocha": "^3.1.0",

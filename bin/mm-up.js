@@ -5,13 +5,13 @@
 const spawn = require('child_process').spawn;
 
 const Promise = require('bluebird');
-const request = Promise.promisifyAll(require('request'), { multiArgs: true });
-
-const URL_STATUS = 'http://localhost:8001/status';
-const URL_APIS = 'http://localhost:8001/apis/';
 
 const lib = require('../lib');
 const config = lib.config;
+
+const host = 'http://localhost:8001';
+const status = new lib.kong.Status(host);
+const apis = new lib.kong.Apis(host);
 
 lib.command
   .parse(process.argv);
@@ -33,7 +33,7 @@ function ping(count) {
   if (count++ > 20) {
     return Promise.reject(new Error('pinged too many times'));
   }
-  return request.getAsync(URL_STATUS).spread((res, body) => {
+  return status.get().spread((res, body) => {
     console.log(body);
     return true;
   }).catch((err) => {
@@ -57,9 +57,7 @@ function proxyService(service) {
   } else {
     json.request_host = service.name;
   }
-  return request.postAsync(URL_APIS, {
-    json: json
-  }).spread((res, body) => {
+  return apis.post(json).spread((res, body) => {
     console.log(body);
     return true;
   }).catch((err) => {
