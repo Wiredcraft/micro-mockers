@@ -15,8 +15,9 @@ services:
   - docker
 install:
   - npm install
-before_script:
   - npm prune
-  - ./test/fixture/pretest.sh
+before_script:
+  - make fixture-build
+  - make fixture-up
 script:
   - make test-coveralls
