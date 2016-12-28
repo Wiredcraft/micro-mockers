@@ -51,7 +51,10 @@
     "should": "^11.1.0"
   },
   "bin": {
-    "mm": "./bin/mm.js"
+    "mm": "./bin/mm.js",
+    "mm-build": "./bin/mm-build.js",
+    "mm-down": "./bin/mm-down.js",
+    "mm-up": "./bin/mm-up.js"
   },
   "scripts": {
     "test": "make test"
