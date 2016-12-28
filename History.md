@@ -1,4 +1,11 @@
 
+0.2.0 / 2016-12-28
+==================
+
+  * Better Makefile.
+  * Rebuilt the Builder, Config, and Kong API classes.
+  * Include all scripts with bin.
+
 0.1.1 / 2016-11-16
 ==================
 
