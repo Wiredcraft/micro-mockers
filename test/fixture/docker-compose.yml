@@ -1,0 +1,46 @@
+version: '2'
+services:
+  kong:
+    image: 'kong:0.9'
+    container_name: fixture_kong
+    restart: always
+    ports:
+      - '8000:8000'
+      - '8001:8001'
+      - '8443:8443'
+    expose:
+      - '7946'
+      - 7946/udp
+    depends_on:
+      - postgres
+    links:
+      - 'postgres:postgres'
+      - 'fixture_lorem:fixture_lorem'
+    environment:
+      - KONG_DATABASE=postgres
+      - KONG_PG_HOST=postgres
+    networks:
+      - fixture
+  postgres:
+    image: 'postgres:9.4'
+    container_name: fixture_postgres
+    ports:
+      - '5432'
+    environment:
+      - POSTGRES_USER=kong
+      - POSTGRES_DB=kong
+    networks:
+      - fixture
+  fixture_lorem:
+    build: ./dockers/mocks
+    container_name: fixture_lorem
+    volumes:
+      - './lorem:/my_project'
+    working_dir: /my_project
+    command: drakov --config drakov.js
+    ports:
+      - '3000'
+    networks:
+      - fixture
+networks:
+  fixture: null

@@ -2,13 +2,16 @@
 
 'use strict';
 
+const debug = require('debug')('mm:bin:build');
+
 const lib = require('../lib');
+const Builder = lib.Builder;
 
 lib.command
   .parse(process.argv);
 
-lib.builder
-  .init(lib.command.context)
+const builder = new Builder(lib.command.context);
+builder
   .build()
-  .tap(() => console.log('done'))
-  .catch(console.log);
+  .tap(() => debug('done'))
+  .catch(debug);

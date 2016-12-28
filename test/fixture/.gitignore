@@ -1,4 +1,1 @@
-build/*
-!build/.gitkeep
-
 *.html

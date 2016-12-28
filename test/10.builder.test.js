@@ -6,19 +6,19 @@ const path = require('path');
 const Promise = require('bluebird');
 const fs = Promise.promisifyAll(require('fs'));
 
-const builder = require('../lib/builder');
+const Builder = require('../lib/Builder');
 
-describe('The builder', function() {
+describe('The Builder', function() {
 
   it('should be there', function() {
-    builder.should.be.Object();
+    Builder.should.be.Function();
   });
 
-  it('can init', function() {
-    builder.init.should.be.Function();
-    const res = builder.init(path.resolve(__dirname, '../example'));
-    res.should.equal(builder);
-    res.should.have.property('config');
+  let builder;
+
+  it('can construct', function() {
+    builder = new Builder(path.resolve(__dirname, '../example'));
+    builder.should.have.property('config');
   });
 
   it('can build', function() {

@@ -2,45 +2,34 @@
 
 'use strict';
 
+const debug = require('debug')('mm:bin:up');
 const spawn = require('child_process').spawn;
 
 const Promise = require('bluebird');
 
 const lib = require('../lib');
-const config = lib.config;
+const Config = lib.Config;
+const adminApi = lib.kong.adminApi;
 
 const host = 'http://localhost:8001';
-const status = new lib.kong.Status(host);
-const apis = new lib.kong.Apis(host);
 
 lib.command
   .parse(process.argv);
 
-config.init(lib.command.context);
+const config = new Config(lib.command.context);
 
+const status = new adminApi.Status(host);
+const apis = new adminApi.Apis(host);
+
+debug('running docker-compose up');
 const child = spawn('docker-compose', ['-f', config.composePath, 'up', '-d', '--build']);
 child.stdout.pipe(process.stdout);
 child.stderr.pipe(process.stderr);
 
 child.on('close', (code) => {
-  Promise.delay(5000).then(ping).then(proxyAll);
+  debug('docker-compose up finished with code %s', code);
+  status.ping().then(proxyAll).catch(debug);
 });
-
-function ping(count) {
-  if (!count) {
-    count = 0;
-  }
-  if (count++ > 20) {
-    return Promise.reject(new Error('pinged too many times'));
-  }
-  return status.get().spread((res, body) => {
-    console.log(body);
-    return true;
-  }).catch((err) => {
-    console.log(err);
-    return Promise.delay(5000).return(count).then(ping);
-  });
-}
 
 function proxyAll() {
   return Promise.map(config.services, proxyService);

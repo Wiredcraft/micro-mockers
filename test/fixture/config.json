@@ -1,5 +1,5 @@
 {
-  "compose": "./build/docker-compose.yml",
+  "compose": "./docker-compose.yml",
   "template": "./docker-compose.tpl.yml",
   "types": {
     "mock": {
@@ -12,5 +12,7 @@
     "type": "mock",
     "name": "fixture_lorem",
     "volume": "./lorem"
-  }]
+  }],
+
+  "adminApi": "http://localhost:8001"
 }

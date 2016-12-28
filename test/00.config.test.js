@@ -3,30 +3,30 @@
 require('should');
 const path = require('path');
 
-const config = require('../lib/config');
+const Config = require('../lib/Config');
 
-describe('The config', function() {
+describe('The Config', function() {
 
   it('should be there', function() {
-    config.should.be.Object();
+    Config.should.be.Function();
   });
 
-  it('can init', function() {
-    config.init.should.be.Function();
-    const res = config.init(path.resolve(__dirname, '../example'));
-    res.should.equal(config);
-    res.should.have.property('composePath');
-    res.should.have.property('composeRoot');
+  let config;
+
+  it('can construct', function() {
+    config = new Config(path.resolve(__dirname, '../example'));
+    config.should.have.property('composePath');
+    config.should.have.property('composeRoot');
   });
 
-  it('can return a schema', function() {
+  it('should have a schema', function() {
     config.should.have.property('schema');
     config.schema.should.be.Object();
   });
 
   it('can return config for types', function() {
-    config.should.have.property('types');
-    config.types.should.be.Object();
+    config.should.have.property('get').which.is.Function();
+    config.get('types').should.be.Object();
   });
 
   it('can return config for services', function() {
