@@ -1,7 +1,7 @@
 ENV = NODE_ENV=test DEBUG=mm:*
 BIN = ./node_modules/.bin
 TESTS = test/*.test.js
-MOCHA_OPTS = -b --timeout 5000 --reporter spec
+MOCHA_OPTS = -b --timeout 10000 --reporter spec
 
 lint:
 	@echo "Linting..."
