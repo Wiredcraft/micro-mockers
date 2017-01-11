@@ -1,4 +1,10 @@
 
+0.3.0 / 2017-01-11
+==================
+
+  * Improved Kong admin API classes to have the ability to do sync (add, update, delete) according to the config.
+  * Refactored Config class.
+
 0.2.0 / 2016-12-28
 ==================
 
