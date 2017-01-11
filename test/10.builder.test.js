@@ -8,20 +8,20 @@ const fs = Promise.promisifyAll(require('fs'));
 
 const Builder = require('../lib/classes/Builder');
 
-describe('The Builder', function() {
+describe('The Builder', () => {
 
-  it('should be there', function() {
+  it('should be there', () => {
     Builder.should.be.Function();
   });
 
   let builder;
 
-  it('can construct', function() {
+  it('can construct', () => {
     builder = new Builder(path.resolve(__dirname, '../example'));
     builder.should.have.property('config');
   });
 
-  it('can build', function() {
+  it('can build', () => {
     return builder.build().then(() => {
       return fs.accessAsync(builder.config.compose);
     });
@@ -29,7 +29,7 @@ describe('The Builder', function() {
 
   it('TODO: check the file content');
 
-  it('can cleanup', function() {
+  it('can cleanup', () => {
     return builder.cleanup().then(() => {
       return fs.accessAsync(builder.config.compose).then(() => {
         throw new Error('expected an error');
