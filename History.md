@@ -1,4 +1,9 @@
 
+0.3.1 / 2017-01-11
+==================
+
+  * Tiny fix: should be a getter, to keep consistency.
+
 0.3.0 / 2017-01-11
 ==================
 
