@@ -3,7 +3,7 @@
 require('should');
 const path = require('path');
 
-const Config = require('../lib/Config');
+const Config = require('../lib/classes/Config');
 
 describe('The Config', function() {
 
@@ -15,7 +15,7 @@ describe('The Config', function() {
 
   it('can construct', function() {
     config = new Config(path.resolve(__dirname, '../example'));
-    config.should.have.property('composePath');
+    config.should.have.property('compose');
     config.should.have.property('composeRoot');
   });
 

@@ -5,7 +5,7 @@
 const debug = require('debug')('mm:bin:build');
 
 const lib = require('../lib');
-const Builder = lib.Builder;
+const Builder = lib.classes.Builder;
 
 lib.command
   .parse(process.argv);
