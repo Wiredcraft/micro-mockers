@@ -13,10 +13,10 @@ lib.command
   .parse(process.argv);
 
 const config = new Config(lib.command.context);
-
-const status = new adminApi.Status(config.adminApi);
-const plugins = new adminApi.Plugins(config.adminApi);
-const apis = new adminApi.Apis(config.adminApi);
+const host = config.adminApi;
+const status = new adminApi.Status(host);
+const plugins = new adminApi.Plugins(host);
+const apis = new adminApi.Apis(host);
 
 debug('running docker-compose up');
 const child = spawn('docker-compose', ['-f', config.compose, 'up', '-d', '--build']);

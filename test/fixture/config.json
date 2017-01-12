@@ -12,7 +12,5 @@
     "type": "mock",
     "name": "fixture_lorem",
     "volume": "./lorem"
-  }],
-
-  "adminApi": "http://localhost:8001"
+  }]
 }
