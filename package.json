@@ -1,7 +1,16 @@
 {
   "name": "micro-mockers",
   "version": "0.3.2",
-  "description": "Mock multiple (micro-)services with Docker boxes and gateway with Kong.",
+  "main": "index.js",
+  "bin": {
+    "mm": "./bin/mm.js",
+    "mm-build": "./bin/mm-build.js",
+    "mm-down": "./bin/mm-down.js",
+    "mm-up": "./bin/mm-up.js"
+  },
+  "scripts": {
+    "test": "make test"
+  },
   "author": {
     "name": "Wiredcraft",
     "email": "info@wiredcraft.com",
@@ -10,6 +19,36 @@
   "contributors": [
     "Makara Wang"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wiredcraft/micro-mockers"
+  },
+  "bugs": {
+    "url": "https://github.com/Wiredcraft/micro-mockers/issues"
+  },
+  "homepage": "https://github.com/Wiredcraft/micro-mockers",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "commander": "^2.11.0",
+    "debug": "^2.6.8",
+    "dot": "^1.1.2",
+    "dot-prop": "^4.1.1",
+    "file-register": "^0.1.0",
+    "joi": "^10.6.0",
+    "js-yaml": "^3.9.0",
+    "lib-rest": "^0.1.4",
+    "loopback-boot": "^2.25.0",
+    "mixable-object": "^0.1.1",
+    "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.13.1",
+    "istanbul": "^0.4.4",
+    "jscs": "^3.0.7",
+    "mocha": "^3.4.2",
+    "should": "^11.1.2"
+  },
+  "license": "MIT",
   "keywords": [
     "Micro",
     "Micro-services",
@@ -20,43 +59,5 @@
     "Gateway",
     "Kong"
   ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Wiredcraft/micro-mockers"
-  },
-  "bugs": {
-    "url": "https://github.com/Wiredcraft/micro-mockers/issues"
-  },
-  "homepage": "https://github.com/Wiredcraft/micro-mockers",
-  "dependencies": {
-    "bluebird": "^3.4.7",
-    "commander": "^2.9.0",
-    "debug": "^2.6.0",
-    "dot": "^1.1.1",
-    "dot-prop": "^4.1.0",
-    "file-register": "^0.1.0",
-    "joi": "^10.1.0",
-    "js-yaml": "^3.7.0",
-    "lib-rest": "^0.1.3",
-    "loopback-boot": "^2.23.0",
-    "mixable-object": "^0.1.1",
-    "request": "^2.79.0"
-  },
-  "devDependencies": {
-    "coveralls": "^2.11.15",
-    "istanbul": "^0.4.4",
-    "jscs": "^3.0.7",
-    "mocha": "^3.2.0",
-    "should": "^11.1.2"
-  },
-  "bin": {
-    "mm": "./bin/mm.js",
-    "mm-build": "./bin/mm-build.js",
-    "mm-down": "./bin/mm-down.js",
-    "mm-up": "./bin/mm-up.js"
-  },
-  "scripts": {
-    "test": "make test"
-  }
+  "description": "Mock multiple (micro-)services with Docker boxes and gateway with Kong."
 }

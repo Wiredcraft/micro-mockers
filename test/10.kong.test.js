@@ -112,7 +112,7 @@ describe('The Kong admin API classes', () => {
     it('can save an api', () => {
       return apis.post({
         name: 'mockbin',
-        request_host: 'mockbin.com',
+        hosts: ['mockbin.com'],
         upstream_url: 'http://mockbin.com'
       });
     });
@@ -126,11 +126,11 @@ describe('The Kong admin API classes', () => {
     it('can sync all apis', () => {
       return apis.syncAll([{
         name: 'fixture_lorem',
-        request_host: 'fixture_lorem',
+        hosts: ['fixture_lorem'],
         upstream_url: 'http://fixture_lorem:3000'
       }, {
         name: 'fixture_ipsum',
-        request_host: 'fixture_ipsum',
+        hosts: ['fixture_ipsum'],
         upstream_url: 'http://fixture_ipsum:3000'
       }]);
     });
@@ -239,7 +239,7 @@ describe('The Kong admin API classes', () => {
     it('can sync with the parent sync', () => {
       return apis.syncAll([{
         name: 'fixture_lorem',
-        request_host: 'fixture_lorem',
+        hosts: ['fixture_lorem'],
         upstream_url: 'http://fixture_lorem:3000',
         plugins: [{
           name: 'cors'
@@ -261,7 +261,7 @@ describe('The Kong admin API classes', () => {
     it('can sync with the parent sync', () => {
       return apis.syncAll([{
         name: 'fixture_lorem',
-        request_host: 'fixture_lorem',
+        hosts: ['fixture_lorem'],
         upstream_url: 'http://fixture_lorem:3000'
       }]);
     });

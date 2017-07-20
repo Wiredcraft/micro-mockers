@@ -1,7 +1,7 @@
 version: '2'
 services:
   kong:
-    image: 'kong:0.9'
+    image: 'kong:0.10'
     container_name: example_kong
     restart: always
     ports:

@@ -24,6 +24,7 @@ child.stdout.pipe(process.stdout);
 child.stderr.pipe(process.stderr);
 
 child.on('close', (code) => {
+  // TODO: error handling when code > 0.
   debug('docker-compose up finished with code %s', code);
   status.ping().then(syncPlugins).then(syncApis).catch(debug);
 });
