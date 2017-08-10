@@ -1,4 +1,5 @@
 {
+  "disallowPaddingNewlinesInBlocks": true,
   "disallowSpacesInsideObjectBrackets": null,
   "disallowUnusedVariables": true,
   "preset": "grunt",

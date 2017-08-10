@@ -5,21 +5,21 @@ const path = require('path');
 
 const Apis = require('../lib/kong/adminApi/Apis');
 const Plugins = require('../lib/kong/adminApi/Plugins');
+const Consumers = require('../lib/kong/adminApi/Consumers');
 
 const Config = require('../lib/classes/Config');
 
 describe('The Kong admin API classes', () => {
-
   let config;
   let plugins;
   let apis;
+  let consumers;
 
   before(() => {
     config = new Config(path.resolve(__dirname, 'fixture'));
   });
 
   describe('Plugins', () => {
-
     it('should be there', () => {
       Plugins.should.be.Function();
     });
@@ -86,11 +86,9 @@ describe('The Kong admin API classes', () => {
         data.should.be.Array().with.length(0);
       });
     });
-
   });
 
   describe('Apis', () => {
-
     after(() => {
       return apis.delete('fixture_ipsum');
     });
@@ -140,11 +138,9 @@ describe('The Kong admin API classes', () => {
         data.should.be.Array().with.length(2);
       });
     });
-
   });
 
   describe('Child Plugins', () => {
-
     let child;
 
     before(() => {
@@ -271,7 +267,64 @@ describe('The Kong admin API classes', () => {
         data.should.be.Array().with.length(0);
       });
     });
-
   });
 
+  describe('Consumers', () => {
+    after(() => {
+      return consumers.getAll().map((item) => {
+        consumers.delete(item.id);
+      });
+    });
+
+    it('should be there', () => {
+      Consumers.should.be.Function();
+    });
+
+    it('can have an instance', () => {
+      consumers = new Consumers(config.adminApi);
+    });
+
+    it('can get all consumers', () => {
+      return consumers.getAll().then((data) => {
+        data.should.be.Array().with.length(0);
+      });
+    });
+
+    it('can save a consumer', () => {
+      return consumers.post({
+        username: 'lorem'
+      });
+    });
+
+    it('can save a consumer', () => {
+      return consumers.post({
+        custom_id: 'lorem'
+      });
+    });
+
+    it('can get all consumers', () => {
+      return consumers.getAll().then((data) => {
+        data.should.be.Array().with.length(2);
+      });
+    });
+
+    it('can sync all consumers', () => {
+      return consumers.syncAll([{
+        username: 'ipsum'
+      }, {
+        custom_id: 'ipsum'
+      }, {
+        username: 'dolor',
+        custom_id: 'dolor'
+      }, {
+        custom_id: 'dolor'
+      }]);
+    });
+
+    it('can get all consumers', () => {
+      return consumers.getAll().then((data) => {
+        data.should.be.Array().with.length(5);
+      });
+    });
+  });
 });

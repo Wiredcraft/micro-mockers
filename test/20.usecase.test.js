@@ -7,7 +7,6 @@ const Lorem = require('./fixture/request');
 const Env = require('lib-rest').Env;
 
 describe('Request the fixture', () => {
-
   const env = new Env();
   const lorem = new Lorem({
     baseUrl: 'http://localhost:8000',
@@ -76,5 +75,4 @@ describe('Request the fixture', () => {
       err.should.have.property('statusCode', 500);
     });
   });
-
 });

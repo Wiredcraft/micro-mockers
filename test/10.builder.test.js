@@ -9,7 +9,6 @@ const fs = Promise.promisifyAll(require('fs'));
 const Builder = require('../lib/classes/Builder');
 
 describe('The Builder', () => {
-
   it('should be there', () => {
     Builder.should.be.Function();
   });
@@ -38,5 +37,4 @@ describe('The Builder', () => {
       });
     });
   });
-
 });

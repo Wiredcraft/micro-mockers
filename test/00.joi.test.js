@@ -5,14 +5,12 @@ require('should');
 const Joi = require('../lib/extended/Joi');
 
 describe('The extended Joi', () => {
-
   it('should be there', () => {
     Joi.should.be.Object();
     Joi.should.have.property('string').which.is.Function();
   });
 
   describe('Transform', () => {
-
     it('should be there', () => {
       Joi.string().should.have.property('transform').which.is.Function();
     });
@@ -23,7 +21,5 @@ describe('The extended Joi', () => {
       });
       Joi.attempt('lorem', schema).should.equal('LOREM');
     });
-
   });
-
 });
