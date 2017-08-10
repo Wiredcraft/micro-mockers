@@ -6,7 +6,6 @@ const path = require('path');
 const Config = require('../lib/classes/Config');
 
 describe('The Config', () => {
-
   it('should be there', () => {
     Config.should.be.Function();
   });
@@ -39,5 +38,4 @@ describe('The Config', () => {
       res.should.be.String();
     });
   });
-
 });
