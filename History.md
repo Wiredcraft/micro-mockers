@@ -1,4 +1,10 @@
 
+0.4.1 / 2017-08-10
+==================
+
+  * Added request lib for Kong consumers API.
+  * Added `.unknown(true)` to all `Joi.object()`.
+
 0.4.0 / 2017-07-20
 ==================
 
