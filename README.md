@@ -9,7 +9,7 @@ Mock multiple (micro-)services with Docker boxes and gateway with Kong.
 - _Always shutdown the docker boxes before you change anything_
 - Download and install Docker
 - `npm install -g micro-mockers`
-- `cd` to your work directory (see `example` as an example)
+- `cd` to your work directory (see `test/fixture` as an example)
 - `mm build`
 - `mm up`
 - `mm down`

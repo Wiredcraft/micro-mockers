@@ -13,7 +13,7 @@ describe('The Config', () => {
   });
 
   it('can construct', () => {
-    config = new Config(path.resolve(__dirname, '../example'));
+    config = new Config(path.resolve(__dirname, 'fixture'));
   });
 
   it('can load', () => {
