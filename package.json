@@ -28,25 +28,26 @@
   },
   "homepage": "https://github.com/Wiredcraft/micro-mockers",
   "dependencies": {
-    "bluebird": "^3.5.0",
-    "commander": "^2.11.0",
-    "debug": "^2.6.8",
+    "bluebird": "^3.5.1",
+    "commander": "^2.14.1",
+    "debug": "^3.1.0",
     "dot": "^1.1.2",
-    "dot-prop": "^4.1.1",
+    "dot-prop": "^4.2.0",
     "file-register": "^0.1.0",
-    "joi": "^10.6.0",
-    "js-yaml": "^3.9.0",
+    "joi": "^13.1.2",
+    "js-yaml": "^3.10.0",
     "lib-rest": "^0.1.4",
-    "loopback-boot": "^2.25.0",
+    "loopback-boot": "^3.1.0",
     "mixable-object": "^0.1.1",
-    "request": "^2.79.0"
+    "p-event": "^1.3.0",
+    "request": "^2.83.0"
   },
   "devDependencies": {
-    "coveralls": "^2.13.1",
+    "coveralls": "^3.0.0",
     "istanbul": "^0.4.4",
     "jscs": "^3.0.7",
-    "mocha": "^3.4.2",
-    "should": "^11.1.2"
+    "mocha": "^5.0.1",
+    "should": "^13.2.1"
   },
   "license": "MIT",
   "keywords": [

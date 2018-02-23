@@ -10,12 +10,8 @@ branches:
 node_js:
   - "8"
   - "6"
-  - "4"
 services:
   - docker
-install:
-  - npm install
-  - npm prune
 before_script:
   - make fixture-build
   - make fixture-up
