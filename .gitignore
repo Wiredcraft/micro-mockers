@@ -2,7 +2,8 @@
 !.gitkeep
 !.gitignore
 !.npmignore
-!.jscsrc
+!.eslintignore
+!.eslintrc
 !.travis.yml
 !.coveralls.yml
 !.istanbul.yml
