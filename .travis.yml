@@ -9,7 +9,6 @@ branches:
     - master
 node_js:
   - "8"
-  - "6"
 services:
   - docker
 before_script:
