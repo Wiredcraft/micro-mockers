@@ -11,7 +11,8 @@ lib.command
   .parse(process.argv);
 
 const config = new Config(lib.command.context);
-
-const child = spawn('docker-compose', ['-f', config.compose, 'down']);
-child.stdout.pipe(process.stdout);
-child.stderr.pipe(process.stderr);
+config.load().then(() => {
+  const child = spawn('docker-compose', ['-f', config.compose, 'down']);
+  child.stdout.pipe(process.stdout);
+  child.stderr.pipe(process.stderr);
+});

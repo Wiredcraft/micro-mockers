@@ -6,16 +6,18 @@ const path = require('path');
 const Config = require('../lib/classes/Config');
 
 describe('The Config', () => {
+  let config;
+
   it('should be there', () => {
     Config.should.be.Function();
   });
 
-  let config;
-
   it('can construct', () => {
-    config = new Config(path.resolve(__dirname, '../example'));
-    config.should.have.property('compose');
-    config.should.have.property('composeRoot');
+    config = new Config(path.resolve(__dirname, 'fixture'));
+  });
+
+  it('can load', () => {
+    return config.load();
   });
 
   it('should have a schema', () => {

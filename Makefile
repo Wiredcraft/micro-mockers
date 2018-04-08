@@ -5,7 +5,7 @@ MOCHA_OPTS = -b --timeout 10000 --reporter spec
 
 lint:
 	@echo "Linting..."
-	@$(BIN)/jscs index.js bin lib test
+	@$(BIN)/eslint .
 test: lint
 	@echo "Testing..."
 	@$(ENV) $(BIN)/_mocha $(MOCHA_OPTS) $(TESTS)

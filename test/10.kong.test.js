@@ -17,6 +17,7 @@ describe('The Kong admin API classes', () => {
 
   before(() => {
     config = new Config(path.resolve(__dirname, 'fixture'));
+    return config.load();
   });
 
   describe('Plugins', () => {

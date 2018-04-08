@@ -1,9 +1,8 @@
-'use strict'
+'use strict';
 
 const Rest = require('lib-rest').Rest;
 
 module.exports = class Apis extends Rest {
-
   get rootPath() {
     return 'api/lorems';
   }
@@ -14,5 +13,4 @@ module.exports = class Apis extends Rest {
       options.headers['X-MOCK-LOREM'] = mockLorem;
     }
   }
-
 };
