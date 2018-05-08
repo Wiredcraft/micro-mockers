@@ -1,4 +1,13 @@
 
+0.5.0 / 2018-05-08
+==================
+
+  * Dropped Node 6.
+  * Use eslint.
+  * Upgrade to Kong 0.12
+  * Removed example - there's already the test/fixture.
+  * Upgrade to loopback-boot v3 and use Yarn.
+
 0.4.1 / 2017-08-10
 ==================
 
